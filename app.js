@@ -34,19 +34,66 @@ var movies = [
     score: 8.2,
     poster: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fx75pHBRH3UdRQtP52k8MIOLryW8.jpg&f=1'
   }
-];
-console.log(movies);
-var moviesElement = movies.map( movie => {
-  return React.createElement('li', {key: movie.id},
-    React.createElement('h2', {}, movie.title),
-    React.createElement('p', {}, movie.desc),
-    React.createElement('img', {src: movie.poster, style: {height: '200px'}}, )
-  )
+]
+// Movies
+var Movies = React.createClass({
+  render: () => {
+    return (
+      React.createElement('div', {},
+        React.createElement('h1', {}, 'Movie List'),
+        React.createElement('ul', {},
+          React.createElement(MovieItem, {movie: this.props.movie})
+        )
+      )
+    )
+  }
+});
+// Movie Item
+var MovieItem = React.createClass({
+  render: () => {
+    return (
+      React.createElement(
+        'li',
+        {key: this.props.movie.id},
+        React.createElement(MovieTitle, {title: this.props.movie.title}),
+        React.createElement(MovieImage, {poster: this.props.movie.poster}),
+        React.createElement(MovieDescription, {desc: this.props.movie.desc})
+      )
+    )
+  }
+});
+// Movie Title
+var MovieTitle = React.createClass({
+  render: () => {
+    return (
+      React.createElement('h2', {}, this.props.title)
+    )
+  }
+});
+// Movie Description
+var MovieDescription = React.createClass({
+  render: () => {
+    return (
+      React.createElement('p', {}, this.props.desc)
+    )
+  }
+});
+// Movie Image
+var MovieImage = React.createClass({
+  render: () => {
+    return (
+      React.createElement('img', {src: this.props.poster, style: {height: '200px'}}, )
+    )
+  }
 });
 
-var element = React.createElement('div', {},
-  React.createElement('h1', {}, 'Movie List'),
-  React.createElement('ul', {}, moviesElement)
-);
+var movie = {
+  id: 5,
+  title: 'Logan',
+  desc: 'The word \'perfect\' is very objective especially when it comes to film. While Logan may not be a perfect film, it is most certainly a perfect comic book film. It is a masterpiece of the most epic proportions and leaves us with a brilliant swan song for producer and star Hugh Jackman in his final outing as Wolverine. The film, directed brilliantly by James Mangold, is a two plus hour comic book fan\'s wet dream as we see the version of Wolverine every fan has wanted to see for nearly two decades. While many will be very sad to see Jackman step down from the role, he couldn\'t have picked a better or more satisfying film to end his cinematic legacy with.',
+  score: 8.2,
+  poster: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fx75pHBRH3UdRQtP52k8MIOLryW8.jpg&f=1'
+}
 
+var element = React.createElement(Movies, {movie: movie});
 ReactDOM.render(element, document.getElementById('app'));

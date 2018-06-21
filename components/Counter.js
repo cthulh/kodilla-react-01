@@ -25,10 +25,12 @@ var Counter = React.createClass({
       console.log(`Component has been unmounted correctly with state of ${JSON.stringify(this.state)}`);
     },
     render: function() {
-        return React.createElement('div', {className: 'counterPanel'},
-            React.createElement('img', {className: 'counterIncremental', onClick: this.increment, src: 'http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Plus.png'}),
-            React.createElement('img', {className: 'counterDecremental', onClick: this.decrement, src: 'http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Minus.png'}),
-            React.createElement('span', {className: 'counterState'}, this.state.counter),
+        return (
+          <div className={'counterPanel'}>
+            <img src={'http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Plus.png'} className={'counterIncremental'} onClick={this.increment} />
+            <img src={'http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Minus.png'} className={'counterDecremental'} onClick={this.decrement} />
+            <span className={'counterState'}>{this.state.counter}</span>
+          </div>
         )
     }
 });

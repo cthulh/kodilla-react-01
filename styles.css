@@ -1,0 +1,74 @@
+/*
+bg-light: #e5ffde;
+bg-darker: #bbcbcb;
+header-light: #9590a8;
+header-darker: #634b66;
+darkest: #18020c;
+*/
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  background-color: #bbcbcb;
+  color: #18020c;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contactForm {
+  display: flex;
+  background-color: #18020c;
+  width: 100%;
+  justify-content: center;
+  padding: 5vh;
+}
+
+.contactForm input, .contactForm button {
+  border-radius: 5px;
+  border: 1px solid #634b66;
+  margin: 1.5rem;
+  padding: 3px 6px;
+}
+
+.contactForm button {
+  background-color: #634b66;
+  color: #eee;
+  cursor: pointer;
+}
+
+.contactForm button:hover {
+  background-color: #5a455d;
+}
+
+.contactItem {
+  display: flex;
+  max-width: 80vw;
+  border: 0 solid #634b66;
+  box-shadow: 1px 5px 15px #18020c;
+  border-radius: 15px;
+  margin: 1.8rem;
+  padding: 18px 36px;
+  background-color: #9590a8;
+}
+
+.contactInfo {
+  margin-left: 18px;
+  padding: 15px 30px;
+  letter-spacing: 1.8px;
+}
+
+.contactEmail {
+  text-decoration: none;
+  color: inherit;
+  letter-spacing: 3px;
+}
+
+.bold {
+  font-weight: 900;
+}

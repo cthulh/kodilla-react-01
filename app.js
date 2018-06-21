@@ -35,14 +35,27 @@ var movies = [
     poster: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fx75pHBRH3UdRQtP52k8MIOLryW8.jpg&f=1'
   }
 ]
+
+const movie5 = {
+  id: 5,
+  title: 'Logan',
+  desc: 'The word \'perfect\' is very objective especially when it comes to film. While Logan may not be a perfect film, it is most certainly a perfect comic book film. It is a masterpiece of the most epic proportions and leaves us with a brilliant swan song for producer and star Hugh Jackman in his final outing as Wolverine. The film, directed brilliantly by James Mangold, is a two plus hour comic book fan\'s wet dream as we see the version of Wolverine every fan has wanted to see for nearly two decades. While many will be very sad to see Jackman step down from the role, he couldn\'t have picked a better or more satisfying film to end his cinematic legacy with.',
+  score: 8.2,
+  poster: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fx75pHBRH3UdRQtP52k8MIOLryW8.jpg&f=1'
+}
+
 // Movies
 var Movies = React.createClass({
-  render: () => {
+  render: function(){
     return (
       React.createElement('div', {},
         React.createElement('h1', {}, 'Movie List'),
         React.createElement('ul', {},
-          React.createElement(MovieItem, {movie: this.props.movie})
+          React.createElement(MovieItem, {movie: this.props.movies[0]}),
+          React.createElement(MovieItem, {movie: this.props.movies[1]}),
+          React.createElement(MovieItem, {movie: this.props.movies[2]}),
+          React.createElement(MovieItem, {movie: this.props.movies[3]}),
+          React.createElement(MovieItem, {movie: this.props.movies[4]})
         )
       )
     )
@@ -50,7 +63,7 @@ var Movies = React.createClass({
 });
 // Movie Item
 var MovieItem = React.createClass({
-  render: () => {
+  render: function(){
     return (
       React.createElement(
         'li',
@@ -64,7 +77,7 @@ var MovieItem = React.createClass({
 });
 // Movie Title
 var MovieTitle = React.createClass({
-  render: () => {
+  render: function(){
     return (
       React.createElement('h2', {}, this.props.title)
     )
@@ -72,7 +85,7 @@ var MovieTitle = React.createClass({
 });
 // Movie Description
 var MovieDescription = React.createClass({
-  render: () => {
+  render: function(){
     return (
       React.createElement('p', {}, this.props.desc)
     )
@@ -80,20 +93,12 @@ var MovieDescription = React.createClass({
 });
 // Movie Image
 var MovieImage = React.createClass({
-  render: () => {
+  render: function(){
     return (
       React.createElement('img', {src: this.props.poster, style: {height: '200px'}}, )
     )
   }
 });
 
-var movie = {
-  id: 5,
-  title: 'Logan',
-  desc: 'The word \'perfect\' is very objective especially when it comes to film. While Logan may not be a perfect film, it is most certainly a perfect comic book film. It is a masterpiece of the most epic proportions and leaves us with a brilliant swan song for producer and star Hugh Jackman in his final outing as Wolverine. The film, directed brilliantly by James Mangold, is a two plus hour comic book fan\'s wet dream as we see the version of Wolverine every fan has wanted to see for nearly two decades. While many will be very sad to see Jackman step down from the role, he couldn\'t have picked a better or more satisfying film to end his cinematic legacy with.',
-  score: 8.2,
-  poster: 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fx75pHBRH3UdRQtP52k8MIOLryW8.jpg&f=1'
-}
-
-var element = React.createElement(Movies, {movie: movie});
+var element = React.createElement(Movies, {movies: movies});
 ReactDOM.render(element, document.getElementById('app'));

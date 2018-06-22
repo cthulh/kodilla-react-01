@@ -26,10 +26,10 @@ var Counter = React.createClass({
     },
     render: function() {
         return (
-          <div className={'counterPanel'}>
-            <img src={'http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Plus.png'} className={'counterIncremental'} onClick={this.increment} />
-            <img src={'http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Minus.png'} className={'counterDecremental'} onClick={this.decrement} />
-            <span className={'counterState'}>{this.state.counter}</span>
+          <div className='counterPanel'>
+            <img src='http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Plus.png' className='counterIncremental' onClick={this.increment} />
+            <img src='http://icons.veryicon.com/png/System/iVista%202%20OS%20X%20Icons/Minus.png' className='counterDecremental' onClick={this.decrement} />
+            <span className='counterState'>{this.state.counter}</span>
           </div>
         )
     }
